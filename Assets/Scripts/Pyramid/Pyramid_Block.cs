@@ -19,25 +19,30 @@ public class Pyramid_Block : GameObjectBase
 
     Pyramid_BlockType blockType;
 
-    public void Init(Pyramid_BlockType blockType, Sprite sprite)
+    public void Init(Pyramid_BlockType blockType)
     {
         this.blockType = blockType;
-        image.sprite = sprite;
+        image.sprite = Pyramid_Main.instance.GetBlockImage(blockType);
     }
 
-    void Update()
+    public void ShowSituateAnimation()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f);
 
-            if (hit.collider != null)
-            {
-                if(hit.collider.gameObject == gameObject)
-                    Debug.Log(blockType + ". Clicked");
-            }
-
-        }
     }
+
+    //void Update()
+    //{
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //        RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f);
+
+    //        if (hit.collider != null)
+    //        {
+    //            if(hit.collider.gameObject == gameObject)
+    //                Debug.Log(blockType + ". Clicked");
+    //        }
+
+    //    }
+    //}
 }

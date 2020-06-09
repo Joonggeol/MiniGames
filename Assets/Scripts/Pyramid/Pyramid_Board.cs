@@ -1,27 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Pyramid_Board : GameObjectBase
 {
     readonly Vector2 boardSize = new Vector2(0.7f, 0.7f);
-    Vector2 idx;
+    
+    [SerializeField]
+    GameObject selectImage;
+
+    [SerializeField]
+    private Pyramid_Block tempBlock;
+
+    bool canSelect = false;
+
+    public Pyramid_Block Block { private set; get; }
+    public Vector2 Index { private set; get; }
 
     public void Init(Vector2 idx)
     {
-        this.idx = idx;
+        this.Index = idx;
         SetPosition();
     }
 
     void SetPosition()
     {
-        float xOffSet = idx.y * (boardSize.x * 0.5f);
-        cachedTransform.localPosition = new Vector3(idx.x * boardSize.x + xOffSet, idx.y * boardSize.y);
-    }
-
-    void OnClick()
-    {
-        Debug.Log("Baord Clicked");
+        float xOffSet = Index.y * (boardSize.x * 0.5f);
+        cachedTransform.localPosition = new Vector3(Index.x * boardSize.x + xOffSet, Index.y * boardSize.y);
     }
 
     void Update()
@@ -34,8 +40,49 @@ public class Pyramid_Board : GameObjectBase
             if (hit.collider != null)
             {
                 if (hit.collider.gameObject == gameObject)
-                    Debug.Log(idx + ". Board Clicked");
+                {
+                    if (canSelect)
+                    {
+                        Debug.Log(Index + ". Board Clicked");
+                        OnSelected();
+                    }
+                }
             }
         }
     }
+
+    void OnSelected()
+    {
+        canSelect = false;
+        SetBlock();
+    }
+
+    void SetBlock()
+    {
+        Block = tempBlock.Spawn(cachedTransform, Vector3.zero);
+        Block.Init(Pyramid_UIManager.instance.CurrentSelectedBlockType);
+        Block.cachedTransform.localScale = Vector3.one;
+        Block.ShowSituateAnimation();
+
+        onSelected?.Invoke();
+    }
+
+    Action onSelected;
+    public void ShowCanSelect(Action onSelected)
+    {
+        if (Block == null)
+        {
+            canSelect = true;
+            selectImage.SetActive(true);
+            this.onSelected = onSelected;
+        }
+    }
+
+    public void HideCanSelect()
+    {
+        canSelect = false;
+        selectImage.SetActive(false);
+    }
+
+    
 }

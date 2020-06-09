@@ -68,6 +68,8 @@
     <Compile Include="Assets\Scripts\Pyramid\Pyramid_Board.cs" />
     <Compile Include="Assets\Scripts\Pyramid\Pyramid_Main.cs" />
     <Compile Include="Assets\Scripts\Pyramid\Pyramid_Player.cs" />
+    <Compile Include="Assets\Scripts\Pyramid\UI\Pyramid_UIBlock.cs" />
+    <Compile Include="Assets\Scripts\Pyramid\UI\Pyramid_UIManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Project/Unity/MiniGame_2DTest/MiniGame_2DTest/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
