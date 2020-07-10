@@ -62,14 +62,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ObjectPool\DelayedRecycle.cs" />
-    <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
-    <Compile Include="Assets\Scripts\Pyramid\Pyramid_Block.cs" />
-    <Compile Include="Assets\Scripts\Pyramid\Pyramid_Board.cs" />
-    <Compile Include="Assets\Scripts\Pyramid\Pyramid_Main.cs" />
-    <Compile Include="Assets\Scripts\Pyramid\Pyramid_Player.cs" />
-    <Compile Include="Assets\Scripts\Pyramid\UI\Pyramid_UIBlock.cs" />
-    <Compile Include="Assets\Scripts\Pyramid\UI\Pyramid_UIManager.cs" />
+    <Compile Include="Assets\Common Scripts\ObjectPool\DelayedRecycle.cs" />
+    <Compile Include="Assets\Common Scripts\ObjectPool\ObjectPool.cs" />
+    <Compile Include="Assets\Pyramid\Scripts\Pyramid_Block.cs" />
+    <Compile Include="Assets\Pyramid\Scripts\Pyramid_Board.cs" />
+    <Compile Include="Assets\Pyramid\Scripts\Pyramid_Computer.cs" />
+    <Compile Include="Assets\Pyramid\Scripts\Pyramid_Main.cs" />
+    <Compile Include="Assets\Pyramid\Scripts\Pyramid_Player.cs" />
+    <Compile Include="Assets\Pyramid\Scripts\Pyramid_TurnManager.cs" />
+    <Compile Include="Assets\Pyramid\Scripts\UI\Popup\GameOverPopup.cs" />
+    <Compile Include="Assets\Pyramid\Scripts\UI\Pyramid_UIBlock.cs" />
+    <Compile Include="Assets\Pyramid\Scripts\UI\Pyramid_UIManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Project/Unity/MiniGame_2DTest/MiniGame_2DTest/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
